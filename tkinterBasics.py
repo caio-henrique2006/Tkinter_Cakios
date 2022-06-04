@@ -1,7 +1,8 @@
 import tkinter as tk
+import tkinter.ttk as tkk
 
 window = tk.Tk()
-greetings = tk.Label(text="Hello World !!!")
+greetings = tkk.Label(text="Hello World !!!")
 greetings.pack()
 
 window.mainloop()

@@ -7,17 +7,18 @@ def changer():
 
 root = Tk()
 
-mainFrame = ttk.Frame(root, padding="10 10 10 10")
+mainFrame = ttk.Frame(root, padding="10 10 10 10", width=200, height=100)
 mainFrame.grid(column=0, row=0, sticky=(N, S, W, E))
+
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
 phrase = StringVar()
 mainText = ttk.Label(mainFrame, textvariable=phrase)
-mainText.grid(column=0, row=0, sticky=(N))
+mainText.grid(column=0, row=0, sticky=(W), columnspan=2)
 
 buttonStart = ttk.Button(mainFrame, text="Criar frase", command=changer)
-buttonStart.grid(column=0, row=1, sticky=(N))
+buttonStart.grid(column=0, row=1, sticky=(W))
 
 name = StringVar()
 age = StringVar()
@@ -25,20 +26,20 @@ age = StringVar()
 textName = ttk.Label(mainFrame, text="Nome:")
 textAge = ttk.Label(mainFrame, text="Idade:")
 textName.grid(column=0, row=2, sticky=(W))
-textAge.grid(column=0, row=4, sticky=(W))
+textAge.grid(column=0, row=3, sticky=(W))
 
 entryName = ttk.Entry(mainFrame, textvariable=name)
 entryAge = ttk.Entry(mainFrame, textvariable=age)
-entryName.grid(column=0, row=3, sticky=(W))
-entryAge.grid(column=0, row=5, sticky=(W))
+entryName.grid(column=1, row=2, sticky=(W))
+entryAge.grid(column=1, row=3, sticky=(W))
 
 textTaste = ttk.Label(mainFrame, text="Gosto:")
-textTaste.grid(column=0, row=6, sticky=(W)) 
+textTaste.grid(column=0, row=4, sticky=(W)) 
 
 chosenTaste = StringVar()
 taste = ttk.Combobox(mainFrame, textvariable=chosenTaste)
 taste["values"] = ('programar', 'jogar', 'assistir netflix', 'anime', 'estudar')
-taste.grid(column=0, row=7, sticky=(W))
+taste.grid(column=1, row=4, sticky=(W))
 
 
 

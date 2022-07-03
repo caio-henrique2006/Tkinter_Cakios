@@ -1,6 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 
+def ScaleFunc(x):
+    scaleTextVar.set(x)
+
 def Send():
     text = "Seu nome é " + userName.get()
     answer.set(text)
@@ -75,5 +78,24 @@ country = ttk.Combobox(sideFrame, textvariable=chosenCountry)
 country["values"] = ('Brasil', 'Alemanha', 'India', 'China')
 country.grid(column=1, row=2, sticky=(N))
 
+# Listbox:
+choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"]
+varChoices = StringVar(value=choices)
+listbox = Listbox(sideFrame, listvariable=varChoices, height=5)
+listbox.grid(column=3, row=0, sticky=(N))
+
+# Scrollbar:
+scroll = ttk.Scrollbar(sideFrame, orient=VERTICAL, command=listbox.yview)
+listbox.configure(yscrollcommand=scroll.set)
+scroll.grid(column=4, row=0, sticky=(N, S))
+
+# Scale:
+varScale = StringVar()
+scale = ttk.Scale(sideFrame, orient=HORIZONTAL, from_=1.0, to=100.0, variable=varScale, command=ScaleFunc)
+scale.grid(column=3, row=1, sticky=(N))
+
+scaleTextVar = StringVar()
+scaleText = ttk.Label(sideFrame, textvariable=scaleTextVar)
+scaleText.grid(column=3, row=2, sticky=(N))
 
 root.mainloop()
